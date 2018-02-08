@@ -7,8 +7,8 @@ public class ArrayStack<E> implements IStack<E> {
 	static final int DEFAULT_CAPACITY = 1000;
 	
 	private int capacity;
-	private int _top;
-	private E _stack[];
+	private int top;
+	private E stack[];
 
 	public ArrayStack() {
 		this(DEFAULT_CAPACITY);
@@ -16,8 +16,8 @@ public class ArrayStack<E> implements IStack<E> {
 	
 	@SuppressWarnings("unchecked")
 	public ArrayStack(int capacity) {
-		_stack = (E[]) new Object[capacity];
-		_top-=1;
+		stack = (E[]) new Object[capacity];
+		top-=1;
 		this.capacity = capacity;
 	}
 	@Override
@@ -25,8 +25,8 @@ public class ArrayStack<E> implements IStack<E> {
 		if(isEmpty()) 
 			throw new EmptyStackException("The Stack is Empty");
 		
-		E element = _stack[_top];
-		_stack[_top--]=null;
+		E element = stack[top];
+		stack[top--]=null;
 		
 		reduce();
 		
@@ -38,14 +38,14 @@ public class ArrayStack<E> implements IStack<E> {
 		if(isEmpty()) {
 			throw new EmptyStackException("The Stack is Empty");
 		}
-		return _stack[_top];
+		return stack[top];
 	}
 
 	@Override
 	public void push(E element) {
 		enlarge();
-		_top += 1;
-		_stack[_top] = element;
+		top += 1;
+		stack[top] = element;
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class ArrayStack<E> implements IStack<E> {
 
 	@Override
 	public int size() {
-		return _top + 1;
+		return top + 1;
 	}
 	
 	
@@ -65,7 +65,7 @@ public class ArrayStack<E> implements IStack<E> {
 		String s="(bottom) [";
 		if(!isEmpty()){
 			for(int i=0;i<size();i++){
-				s+=_stack[i];
+				s+=stack[i];
 				if(i!=size()-1)
 					s+=", ";
 			}
@@ -99,8 +99,8 @@ public class ArrayStack<E> implements IStack<E> {
 	private void resize() {
 		E[] array = (E[]) new Object[capacity];
 		for(int i = 0; i<size(); i++) {
-			array[i] = _stack[i];
+			array[i] = stack[i];
 		}
-		_stack = array;
+		stack = array;
 	}
 }
