@@ -1,8 +1,8 @@
-package programs;
+package tests;
 
 import stack.ArrayStack;
 
-public class DataStructure {
+public class StackOperations {
 
 	public static void main(String[] args) {
 		
@@ -18,14 +18,13 @@ public class DataStructure {
 		stack.pop();
 		System.out.println(stack.toString());
 		
-		System.out.println("Adding more elements...");
+		System.out.println("Pushing more elements...");
 		stack.push(5);
 		stack.push(45);
 		stack.push(32);
 		stack.push(43);
 		
 		System.out.println(stack.toString());
-			
 	}
 
 }
