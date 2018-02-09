@@ -20,6 +20,7 @@ public class ArrayStack<E> implements IStack<E> {
 		top-=1;
 		this.capacity = capacity;
 	}
+	
 	@Override
 	public E pop() throws EmptyStackException {
 		if(isEmpty()) 
@@ -58,7 +59,6 @@ public class ArrayStack<E> implements IStack<E> {
 		return top + 1;
 	}
 	
-	
 	@Override
 	public String toString() {
 		
@@ -74,7 +74,6 @@ public class ArrayStack<E> implements IStack<E> {
 		return s;
 		
 	}
-	
 	
 	public int getCapacity() {
 		return capacity;
